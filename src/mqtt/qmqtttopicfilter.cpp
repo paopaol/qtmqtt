@@ -228,7 +228,7 @@ bool QMqttTopicFilter::match(const QMqttTopicName &name, MatchOptions matchOptio
     if (matchOptions.testFlag(WildcardsDontMatchDollarTopicMatchOption)
         && topic.startsWith(QLatin1Char('$'))
         && (d->filter.startsWith(QLatin1Char('+'))
-            || d->filter == QLatin1Char('#')
+            || d->filter == "#"
             || d->filter == QLatin1String("/#"))) {
         return false;
     }
@@ -247,7 +247,7 @@ bool QMqttTopicFilter::match(const QMqttTopicName &name, MatchOptions matchOptio
             return false;
         for (int i = 0; i < filterLevels.size(); ++i) {
             const QStringRef &level = filterLevels.at(i);
-            if (level != QLatin1Char('+') && level != topicLevels.at(i))
+            if (level != "+" && level != topicLevels.at(i))
                 return false;
         }
         return true;

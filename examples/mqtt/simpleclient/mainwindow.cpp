@@ -86,7 +86,7 @@ MainWindow::MainWindow(QWidget *parent) :
     });
 
     connect(ui->lineEditHost, &QLineEdit::textChanged, m_client, &QMqttClient::setHostname);
-    connect(ui->spinBoxPort, QOverload<int>::of(&QSpinBox::valueChanged), this, &MainWindow::setClientPort);
+    connect(ui->spinBoxPort, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &MainWindow::setClientPort);
     updateLogStateChange();
 }
 
