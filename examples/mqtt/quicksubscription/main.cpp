@@ -53,6 +53,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QLoggingCategory>
+#include <QtQml>
 
 int main(int argc, char *argv[])
 {

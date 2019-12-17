@@ -84,14 +84,14 @@ void tst_QMqttPublishProperties::getSet()
     QVERIFY(!(p.availableProperties() & QMqttPublishProperties::MessageExpiryInterval));
     p.setMessageExpiryInterval(200);
     QVERIFY(p.availableProperties() & QMqttPublishProperties::MessageExpiryInterval);
-    QCOMPARE(p.messageExpiryInterval(), 200u);
+    QCOMPARE((int)p.messageExpiryInterval(), 200);
 
     QVERIFY(!(p.availableProperties() & QMqttPublishProperties::TopicAlias));
     p.setTopicAlias(1);
-    QCOMPARE(p.topicAlias(), 1);
+    QCOMPARE((int)p.topicAlias(), 1);
     QVERIFY(p.availableProperties() & QMqttPublishProperties::TopicAlias);
     p.setTopicAlias(0); // Zero is not allowed
-    QCOMPARE(p.topicAlias(), 1);
+    QCOMPARE((int)p.topicAlias(), 1);
 
     const QString responseTopic = QLatin1String("reply/to/this");
     QVERIFY(!(p.availableProperties() & QMqttPublishProperties::ResponseTopic));
